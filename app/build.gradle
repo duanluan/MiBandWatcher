@@ -1,0 +1,46 @@
+plugins {
+  id 'com.android.application'
+}
+
+android {
+  namespace 'top.zhjh.mibandwatcher'
+  compileSdk 33
+
+  defaultConfig {
+    applicationId "top.zhjh.mibandwatcher"
+    minSdk 24
+    targetSdk 33
+    versionCode 1
+    versionName "1.0"
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  buildFeatures {
+    // 启用视图绑定，才能使用 ActivityMainBinding 对象
+    viewBinding true
+  }
+}
+
+dependencies {
+  implementation 'androidx.appcompat:appcompat:1.4.1'
+  implementation 'com.google.android.material:material:1.5.0'
+  implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+  // 简化 Android 6.0（API level 23）及以上版本的运行时权限管理
+  implementation 'com.karumi:dexter:6.2.3'
+
+  testImplementation 'junit:junit:4.13.2'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
